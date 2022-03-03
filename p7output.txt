@@ -1,1 +1,77 @@
-
+Breakpoint 1, main () at p7original.c:45
+45    f1=input_fraction();
+(gdb) s
+input_fraction () at p7original.c:19
+19  {
+(gdb) n
+21    printf("input a fraction\n");
+(gdb) n
+input a fraction
+22    scanf("%d%d",&f.num,&f.den);
+(gdb) n
+12
+11
+23    return f;
+(gdb) n
+24  }
+(gdb) n
+main () at p7original.c:46
+46    f2=input_fraction();
+(gdb) s
+input_fraction () at p7original.c:19
+19  {
+(gdb) n
+21    printf("input a fraction\n");
+(gdb) n
+input a fraction
+22    scanf("%d%d",&f.num,&f.den);
+(gdb) n
+12
+14
+23    return f;
+(gdb) n
+24  }
+(gdb) n
+main () at p7original.c:47
+47    sum = add_fraction(f1,f2);
+(gdb) s
+add_fraction (f1=..., f2=...) at p7original.c:29
+29    sum.num = (f1.num*f2.den)+(f2.num*f1.den);
+(gdb) n
+30    sum.den = f1.den*f2.den;
+(gdb) n
+31    int g = gcd(sum.num,sum.den);
+(gdb) n
+32    sum.num = sum.num/g;
+(gdb) n
+33    sum.den = sum.den/g;
+(gdb) n
+34    return sum;
+(gdb) n
+35  }
+(gdb) n
+main () at p7original.c:48
+48    output(f1,f2,sum);
+(gdb) s
+output (f1=..., f2=..., sum=...) at p7original.c:39
+39    printf("The sum of %d/%d and %d/%d is %d/%d \n",f1.num,f1.den,f2.num,f2.den,sum.num,sum.den);
+(gdb) n
+The sum of 12/11 and 12/14 is 150/77 
+40  }
+(gdb) n
+main () at p7original.c:49
+49    return 0;
+(gdb) p f1
+$1 = {num = 12, den = 11}
+(gdb) p f2
+$2 = {num = 12, den = 14}
+(gdb) p sum
+$3 = {num = 150, den = 77}
+(gdb) l
+44    Fraction f1,f2,sum;
+45    f1=input_fraction();
+46    f2=input_fraction();
+47    sum = add_fraction(f1,f2);
+48    output(f1,f2,sum);
+49    return 0;
+50  }(gdb) 
