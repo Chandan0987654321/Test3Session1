@@ -1,4 +1,4 @@
-#include<stdio.h>//This program is wrong
+#include<stdio.h>
 
 typedef struct fraction
 {
